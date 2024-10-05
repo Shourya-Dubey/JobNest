@@ -8,6 +8,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { USER_API_END_POINT } from "@/utils/constant";
 import { toast } from "sonner";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading } from "@/redux/authSlice";
+import { Loader2 } from "lucide-react";
 
 const Login = () => {
 
@@ -17,7 +20,10 @@ const Login = () => {
     role:"",
   });
 
+  const {loading} = useSelector(store=>store.auth)
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const changeEventHandler = (e) =>{
     setInput({...input, [e.target.name]: e.target.value});
@@ -27,6 +33,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
+      dispatch(setLoading(true));
       const res = await axios.post(`${USER_API_END_POINT}/login`, input, {
         headers: {
           "Content-Type": "application/json",
@@ -41,6 +48,8 @@ const Login = () => {
     } catch (error) {
       console.log("Error while connecting to USER_API_END_PONT in Login", error);
       toast.error(error.response.data.message);
+    } finally{
+      dispatch(setLoading(false));
     }
   };
 
@@ -48,8 +57,10 @@ const Login = () => {
     <div>
       <Navbar />
       <div className="flex items-center justify-center max-w-7xl mx-auto">
-        <form onSubmit={submitHandler} 
-        className="w-1/2 border-gray-200 rounded-md p-4 my-10">
+        <form
+          onSubmit={submitHandler}
+          className="w-1/2 border-gray-200 rounded-md p-4 my-10"
+        >
           <h1 className="font-bold text-xl mb-5">Login</h1>
 
           <div className="my-2">
@@ -101,9 +112,19 @@ const Login = () => {
             </RadioGroup>
           </div>
 
-          <Button type="submit" className="w-full my-4">
-            Login
-          </Button>
+          { 
+            loading ? (
+            <Button className="w-full my-4">
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Please Wait
+            </Button>
+            ) : (
+            <Button type="submit" className="w-full my-4">
+              Login
+            </Button>
+            )
+          }
+
           <span className="text-sm">
             Dont't have an account?
             <Link to="/signup" className="text-blue-600">
