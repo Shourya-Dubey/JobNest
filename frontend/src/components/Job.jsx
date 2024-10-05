@@ -8,27 +8,33 @@ const Job = () => {
   return (
     <div className="p-5 roudned-md shadow-xl bg-white border-gray-100">
       <div className="flex items-center justify-between">
-        <p className='text-sm text-gray-500'>2 Days ago</p>
+        <p className="text-sm text-gray-500">2 Days ago</p>
         <Button variant="outline" className="rounded-full" size="icon">
           <Bookmark />
         </Button>
       </div>
 
       <div className="flex items-center gap-2 my-2">
-        <Button className="p-6" variant="outline" size="icons">
+        {/* previously in Button p-6 */}
+        <Button className="p-1" variant="outline" size="icons">
           <Avatar>
-            <AvatarImage src="" />
+            <AvatarImage
+              src="https://www.shutterstock.com/image-vector/circle-line-simple-design-logo-600nw-2174926871.jpg"
+              alt="profile"
+              width="40px"
+              height="40px"
+            />
           </Avatar>
         </Button>
 
         <div>
-          <h1 className='font-medium text-lg'>Company Name</h1>
-          <p className='text-sm text-gray-500'>India</p>
+          <h1 className="font-medium text-lg">Company Name</h1>
+          <p className="text-sm text-gray-500">India</p>
         </div>
       </div>
 
       <div>
-        <h1 className="font-bold text-lg my-2">Title</h1>
+        <h1 className="font-semibold text-lg my-2">Title</h1>
         <p className="text-sm text-gray-600">
           This solution alternates elements from the two vectors and maintains
           opposite signs for each consecutive element.
