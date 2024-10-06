@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { Contact, Mail, Pen } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Label } from "./ui/label";
+import AppliedJobTable from "./AppliedJobTable";
 
 const skills = ["Html", "Css", "JavaScript", "Reactjs"];
 
@@ -73,8 +74,10 @@ const Profile = () => {
             <span>NA</span>
           )}
         </div>
-
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl"></div>
+      </div>
+      <div className="max-w-screen-lg mx-auto bg-white rounded-2xl">
+        <h1 className="font-semibold text-lg m-5">Applied Jobs</h1>
+        <AppliedJobTable />
       </div>
     </div>
   );
