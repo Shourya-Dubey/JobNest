@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./shared/Navbar";
 import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
 import { Button } from "./ui/button";
@@ -6,11 +6,14 @@ import { Contact, Mail, Pen } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Label } from "./ui/label";
 import AppliedJobTable from "./AppliedJobTable";
+import UpdateProfileDialog from "./UpdateProfileDialog";
 
 const skills = ["Html", "Css", "JavaScript", "Reactjs"];
+const isResume = true;
 
 const Profile = () => {
-  const isResume = true;
+  
+  const [open ,setOpen] = useState(false);
 
   return (
     <div>
@@ -32,7 +35,11 @@ const Profile = () => {
               <p>This solution alternates elements from the two vectors</p>
             </div>
           </div>
-          <Button className="text-right" varient="outline">
+          <Button
+            onClick={() => setOpen(true)}
+            className="text-right"
+            varient="outline"
+          >
             <Pen />
           </Button>
         </div>
@@ -75,10 +82,13 @@ const Profile = () => {
           )}
         </div>
       </div>
+
       <div className="max-w-screen-lg mx-auto bg-white rounded-2xl">
         <h1 className="font-semibold text-lg m-5">Applied Jobs</h1>
         <AppliedJobTable />
       </div>
+
+      <UpdateProfileDialog open={open} setOpen={setOpen} />
     </div>
   );
 };
