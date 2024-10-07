@@ -52,6 +52,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     }
 
     try{
+        setLoading(true)
         const res = await axios.post(
           `${USER_API_END_POINT}/profile/update`,
           formData,
@@ -69,7 +70,10 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     }catch(error){
         console.log("Error while updating data in updateProfileDialog ", error);
         toast.error(error.response.data.message);
+    }finally{
+        setLoading(false);
     }
+
     setOpen(false);
 
     console.log(input);
@@ -162,7 +166,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                     name="file"
                     type="file"
                     onChange={fileChangeHandler}
-                    accept="application/pdg"
+                    accept="application/pdf"
                     className="col-span-3"
                   />
                 </div>
