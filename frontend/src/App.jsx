@@ -6,38 +6,45 @@ import Jobs from './components/Jobs'
 import Browse from './components/Browse'
 import Profile from './components/Profile'
 import JobDescription from './components/JobDescription'
+import Companies from './components/admin/Companies'
 
 
 const appRouter = createBrowserRouter([
   {
-    path:'/',
-    element:<Home/>
-  },  
+    path: "/",
+    element: <Home />,
+  },
   {
-    path:'/login',
-    element:<Login/>
-  },  
+    path: "/login",
+    element: <Login />,
+  },
   {
-    path:'/signup',
-    element:<Signup/>
-  },    
+    path: "/signup",
+    element: <Signup />,
+  },
   {
-    path:'/jobs',
-    element:<Jobs/>
-  },  
+    path: "/jobs",
+    element: <Jobs />,
+  },
   {
-    path:'/description/:id',
-    element:<JobDescription/>
-  }, 
+    path: "/description/:id",
+    element: <JobDescription />,
+  },
   {
-    path:'/browse',
-    element:<Browse/>
-  }, 
+    path: "/browse",
+    element: <Browse />,
+  },
   {
-    path:'/profile',
-    element:<Profile/>
-  },     
-])
+    path: "/profile",
+    element: <Profile />,
+  },
+
+  //Adim routes
+  {
+    path: "/admin/companies",
+    element: <Companies/>
+  },
+]);
 
 function App() {
 
