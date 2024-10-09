@@ -1,4 +1,6 @@
 import { Company } from "../models/company.model.js";
+import getDataUri from '../utils/datauri.js';
+import cloudinary from '../utils/cloudinary.js';
 
 export const registerCompany = async(req, res) =>{
     try{
@@ -84,9 +86,13 @@ export const updateCompany = async(req, res) => {
     try{
         const {name, description, website, location} = req.body;
         const file = req.file;
-        //cloudinay
 
-        const updateData = { name, description, website, location };
+        //cloudinay
+        const fileUri = getDataUri(file);
+        const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
+        const logo = cloudResponse.secure_url;
+
+        const updateData = { name, description, website, location ,logo};
 
         const company = await Company.findByIdAndUpdate(req.params.id, updateData, {new: true});
 
@@ -103,6 +109,6 @@ export const updateCompany = async(req, res) => {
         });
 
     }catch(error){
-        console.log("Error while update company ", error);
+        console.log("Error while update company in compnayController", error);
     }
 }
