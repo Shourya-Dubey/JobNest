@@ -9,6 +9,7 @@ import JobDescription from './components/JobDescription'
 import Companies from './components/admin/Companies'
 import CompanyCreate from './components/admin/CompanyCreate'
 import CompanySetup from './components/admin/CompanySetup'
+import AdminJobs from './components/admin/AdminJobs'
 
 
 const appRouter = createBrowserRouter([
@@ -44,15 +45,21 @@ const appRouter = createBrowserRouter([
   //Adim routes
   {
     path: "/admin/companies",
-    element: <Companies/>
-  }, 
+    element: <Companies />,
+  },
   {
     path: "/admin/companies/create",
-    element: <CompanyCreate/>
-  }, 
+    element: <CompanyCreate />,
+  },
   {
     path: "/admin/companies/:id",
-    element: <CompanySetup/>
+    element: <CompanySetup />,
+  },
+
+  //Admin Jobs
+  {
+    path: "/admin/jobs",
+    element: <AdminJobs />,
   },
 ]);
 
