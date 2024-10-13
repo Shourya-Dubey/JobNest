@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from './ui/button'
 import { Bookmark } from 'lucide-react'
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
@@ -6,6 +6,12 @@ import { Badge } from './ui/badge'
 import { useNavigate } from 'react-router-dom'
 
 const Job = ({job}) => {
+
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
 
   const navigate = useNavigate();
   
@@ -25,7 +31,14 @@ const Job = ({job}) => {
             ? "Today"
             : `${daysAgoFunction(job?.createdAt)} day ago`}
         </p>
-        <Button variant="outline" className="rounded-full" size="icon">
+        <Button
+          onClick={handleClick}
+          variant="outline"
+          className={`rounded-full ${
+            isClicked ? "bg-[#7209b7] text-white" : "bg-transparent"
+          }`}
+          size="icon"
+        >
           <Bookmark />
         </Button>
       </div>

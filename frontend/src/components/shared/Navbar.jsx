@@ -40,13 +40,16 @@ const Navbar = () => {
     <div className="bg-white">
       <div className="flex items-center justify-between mx-auto max-w-screen-lg h-16">
         <div>
-          <h1 className="text-2xl font-bold">
-            Job <span className="text-[#f83002]">Portal</span>{" "}
+          <h1 className="text-3xl font-bold">
+            Job{" "}
+            <span className="bg-gradient-to-b from-[#617e93] via-[#f81010] to-[#ece964] text-transparent bg-clip-text">
+              Nest
+            </span>{" "}
           </h1>
         </div>
 
         <div className="flex items-center gap-12">
-          <ul className="flex font-medium items-center gap-5">
+          <ul className="flex font-medium items-center gap-5 text-lg">
             {user && user.role == "recruiter" ? (
               <>
                 <li>
@@ -94,13 +97,13 @@ const Navbar = () => {
                   />
                 </Avatar>
               </PopoverTrigger>
-              <PopoverContent className="w-100">
+              <PopoverContent className="w-100 shadow-md p-2 bg-white">
                 <div>
                   <div className="flex gap-2 space-y-2 items-center">
                     <Avatar className="cursor-pointer">
                       <AvatarImage
                         src={user?.profile?.profilePhoto}
-                        alt="@shadcn"
+                        alt="profilePhoto"
                         className="w-[40px] h-[40px] rounded-full"
                       />
                     </Avatar>

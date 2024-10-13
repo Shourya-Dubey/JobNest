@@ -100,7 +100,7 @@ const JobDescription = () => {
         className="my-4
       "
       >
-        <h1 className="font-semibold my-1">
+        <h1 className="font-bold my-1">
           Role:
           <span className="pl-4 font-normal text-gray-800">
             {singleJob?.title}
@@ -121,11 +121,19 @@ const JobDescription = () => {
           </span>
         </h1>
 
+        {/* <h1 className="font-bold my-1">
+          Requirement:
+          <span className="pl-4 font-normal text-gray-800">
+            {" "}
+            {singleJob?.requirements}
+          </span>
+        </h1> */}
+
         <h1 className="font-bold my-1">
           Experience:
           <span className="pl-4 font-normal text-gray-800">
             {" "}
-            {singleJob?.experience} yrs
+            {singleJob?.experienceLevel} yrs
           </span>
         </h1>
 

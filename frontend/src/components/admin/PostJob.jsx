@@ -180,7 +180,8 @@ const PostJob = () => {
                 <SelectContent>
                   <SelectGroup>
                     {companies.map((company) => (
-                      <SelectItem value={company?.name?.toLowerCase()}>
+                      <SelectItem key={company._id}
+                        value={company?.name?.toLowerCase()}>
                         {company.name}
                       </SelectItem>
                     ))}

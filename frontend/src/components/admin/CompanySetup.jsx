@@ -92,7 +92,7 @@ const CompanySetup = () => {
             <Button
               onClick={() => navigate("/admin/companies")}
               varient="outline"
-              className="flex items-center gap-2 text-semibold text-gray-500"
+              className="flex items-center gap-2 text-semibold text-white"
             >
               <ArrowLeft />
               <span>Back</span>
