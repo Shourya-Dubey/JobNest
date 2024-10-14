@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-  origin: "https://jobportal-backend-1uq5.onrender.com",
+  origin: "https://jobportal-en7b.onrender.com",
   credentials: true,
 };
 app.use(cors(corsOptions));
