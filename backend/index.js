@@ -17,6 +17,7 @@ dotenv.config();
 //connect DB
 connectDB();
 const PORT = process.env.PORT || 8081;
+const HOST = "0.0.0.0"; //added
 const app = express();
 
 const _dirname = path.resolve();
@@ -45,6 +46,12 @@ app.get("*", (_, res) => {
 })
 
 
-app.listen(PORT, ()=>{
-  console.log(`Server running at PORT ${PORT}`);
-})
+// app.listen(PORT, ()=>{
+//   console.log(`Server running at PORT ${PORT}`);
+// })
+app.listen(PORT, HOST, () => {
+  console.log(`Server running on http://${HOST}:${PORT}`);
+});
+
+server.keepAliveTimeout = 120 * 1000; // 120 seconds
+server.headersTimeout = 120 * 1000; // 120 seconds
