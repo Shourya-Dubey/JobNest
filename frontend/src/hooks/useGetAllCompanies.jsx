@@ -13,7 +13,7 @@ const useGetAllCompanies = () => {
           `${COMPANY_API_END_POINT}/get`,
           { withCredentials: true }
         );
-        // console.log(res.data);
+        
         if (res?.data?.success) {
           dispatch(setCompanies(res.data.companies));
         }

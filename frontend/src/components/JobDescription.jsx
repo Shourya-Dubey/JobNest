@@ -25,7 +25,7 @@ const JobDescription = () => {
       try{
         const res = await axios.get(`${APPLICATION_API_END_POINT}/apply/${jobId}`, {withCredentials: true});
 
-        console.log(res.data);
+        // console.log(res.data);
         
         if(res.data.success){
           setIsApplied(true); //udate the local state

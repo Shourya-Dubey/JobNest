@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-  origin: "*",
+  origin: "http://localhost:5173",
   credentials: true,
 };
 app.use(cors(corsOptions));
@@ -33,6 +33,6 @@ app.use("/api/v1/application", applicationRoute);
 
 
 app.listen(PORT, ()=>{
-    connectDB();
-    console.log(`Server running at PORT ${PORT}`);
+  connectDB();
+  console.log(`Server running at PORT ${PORT}`);
 })
